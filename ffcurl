@@ -1,0 +1,7 @@
+#!/bin/bash
+firefoxprofile=0c3tltoo.default
+if [[ $1 == "start" ]]; then
+cookiesdump.sh .mozilla/firefox/$firefoxprofile/cookies.sqlite |tee ~/cookies.txt
+else
+curl --cookie ~/cookies.txt $1
+fi
