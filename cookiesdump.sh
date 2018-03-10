@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-#copied from https://gist.github.com/hackerb9/d382e09683a52dcac492ebcdaf1b79af
+# original copied from https://gist.github.com/hackerb9/d382e09683a52dcac492ebcdaf1b79af
 #$ cookiesdump.sh ~/.mozilla/firefox/*/cookies.sqlite > /tmp/cookies.txt
 #$ wget --load-cookies=/tmp/cookies.txt http://mysite.com
 #$ curl --cookie /tmp/cookies.txt http://mysite.com 
