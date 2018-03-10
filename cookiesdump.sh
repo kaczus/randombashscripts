@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
-#$ extract_cookies $HOME/.mozilla/firefox/*/cookies.sqlite > /tmp/cookies.txt
+#copied from https://gist.github.com/hackerb9/d382e09683a52dcac492ebcdaf1b79af
+#$ cookiesdump.sh ~/.mozilla/firefox/*/cookies.sqlite > /tmp/cookies.txt
 #$ wget --load-cookies=/tmp/cookies.txt http://mysite.com
-#$ # OR 
 #$ curl --cookie /tmp/cookies.txt http://mysite.com 
 
 cleanup() {
