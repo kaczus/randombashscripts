@@ -1,0 +1,7 @@
+#!/bin/bash
+topn=$(cut -d '|' -f 4 /var/db/sshguard/blacklist.db | xargs -I {} geoiplookup {} | grep -v 'not found' | cut -d : -f 2|cut -d , -f 1 | sort | uniq -c | sort | tail -10)
+echo "<img>/usr/share/icons/ePapirus/16x16/actions/stop.svg</img>"
+#declare -i sshguardVictims
+sshguardVictims=$( wc -l /var/db/sshguard/blacklist.db | awk '{print $1}' )
+echo "<txt>sshguard: $sshguardVictims</txt>"
+echo "<tool>$topn</tool>"

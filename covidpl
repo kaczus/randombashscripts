@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+mkdir -p $HOME/tmp/
+touch ~/tmp/covidhist
+touch ~/tmp/covid
+prev=$(cat ~/tmp/covid)
+curr=$(curl -s 'https://twitter.com/MZ_GOV_PL'|grep 'wszystkie\ pozytywne'|egrep -o '[0-9\ \/]{3,}'|head -1)
+echo -n '<txt>'
+[ $(egrep -o '[0-9\ \/]{3,}' <<< $curr) ] && echo -n $prev || echo -n $curr | tee ~/tmp/covid
+echo -n '</txt>'
+[ $prev != $curr ] && echo -n $(date '+%Y-%m-%d %H:%M:%S') >> ~/tmp/covidhist && echo " "$curr >> ~/tmp/covidhist
+echo -n '<tool>'
+tac ~/tmp/covidhist|head -60;echo -n '</tool>'
